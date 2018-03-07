@@ -8,7 +8,6 @@ class Home extends MainPage {
 	}
     public function onLoad ($param) {		
 		parent::onLoad($param);
-        $this->loggerJS->Visible=true;
     }
     public function checkUsernameAndPassword($sender,$param) {
         $username=$param->Value;

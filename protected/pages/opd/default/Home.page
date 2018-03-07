@@ -1,1 +1,31 @@
-<!--  -->
+<%@ Title="PTSP-OPD - Dashboard OPD" %>
+<com:TContent ID="modulheader">
+              <h1>
+                Dashboard
+                <small>
+                  <i class="ace-icon fa fa-angle-double-right"></i>
+                  overview &amp; stats
+                </small>
+              </h1>
+</com:TContent>
+<com:TContent ID="maincontent">
+<com:TPanel Visible="<%=$this->getDefaultProcess ()%>">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="widget-box">
+				<div class="widget-header widget-header-flat">
+					<h4 class="widget-title smaller">Daftar Pengajuan Telaah Terbaru</h4>
+				</div>
+				<div class="widget-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table table-bordered">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</com:TPanel>
+</com:TContent>

@@ -1,7 +1,7 @@
 <?php 
-prado::using('Application.MainPageOPD');
+prado::using('Application.pagecontroller.opd.CHome');
 
-class Home extends MainPageOPD
+class Home extends CHome
 {
-	
+		
 }

@@ -1,62 +1,87 @@
 <%@ Title="PTSP-OPD - Login" %>
 <com:TContent ID="maincontent">
-<div class="row">
-	<div class="col-md-offset-4 col-md-4">
-		<com:TPanel Visible="<%=$this->User->isGuest==true%>">
-			<div class="row">
-				<div class="col-md-12">
-					<com:TTextBox ID="txtUsername" Attributes.Placeholder="Username" CssClass="form-control" />
-					
-					<com:TRequiredFieldValidator ID="IsUsernameFilledValidator" ControlToValidate="txtUsername" Display="Dynamic" Text="Isi username !!!" ValidationGroup="userlogin" FocusOnError="true">
-						<prop:ClientSide.OnValidationError>
-							
-						</prop:ClientSide.OnValidationError>
-						<prop:ClientSide.OnValidationSuccess>
-							
-						</prop:ClientSide.OnValidationSuccess>
-					</com:TRequiredFieldValidator>
+	<div class="row">
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="login-container">
+				<div class="center">
+					<h1>
+						<span class="red">PTSP</span>
+						<span class="white" id="id-text2">OPD</span>
+					</h1>
+					<h4 class="blue" id="id-company-text">Login</h4>
 				</div>
+				<div class="space-6"></div>
+				<div id="login-box" class="login-box visible widget-box no-border">
+					<div class="widget-body">
+						<div class="widget-main">
+							<h4 class="header blue lighter bigger">
+								<i class="ace-icon fa fa-coffee green"></i>
+								Please Enter Your Information
+							</h4>
+							<com:TActiveCustomValidator ControlToValidate="txtUsername" Display="Dynamic" OnServerValidate="checkUsernameAndPassword" ValidationGroup="userlogin" />
+							<div class="space-4"></div>
+							<form>
+								<com:TPanel Visible="<%=$this->User->isGuest==true%>">
+								<fieldset>
+									<label class="block clearfix">
+										<span class="block input-icon input-icon-right">
+											<com:TTextBox ID="txtUsername" Attributes.Placeholder="Username" CssClass="form-control" />
+											<i class="ace-icon fa fa-user"></i>
+											<com:TRequiredFieldValidator ID="IsUsernameFilledValidator" ControlToValidate="txtUsername" Display="Dynamic" Text="Isi username !!!" ValidationGroup="userlogin" FocusOnError="true">
+												<prop:ClientSide.OnValidationError>
+													
+												</prop:ClientSide.OnValidationError>
+												<prop:ClientSide.OnValidationSuccess>
+													
+												</prop:ClientSide.OnValidationSuccess>
+											</com:TRequiredFieldValidator>
+										</span>
+									</label>
+
+									<label class="block clearfix">
+										<span class="block input-icon input-icon-right">
+											<com:TTextBox ID="txtPassword" TextMode="Password" CssClass="form-control" Attributes.Placeholder="Password"/>
+											<i class="ace-icon fa fa-lock"></i>
+											<com:TRequiredFieldValidator ID="IsPasswordFilledValidator" ControlToValidate="txtPassword" Display="Dynamic" Text="Isi Password !!!" ValidationGroup="userlogin" FocusOnError="true">
+												<prop:ClientSide.OnValidationError>
+													
+												</prop:ClientSide.OnValidationError>
+												<prop:ClientSide.OnValidationSuccess>
+													
+												</prop:ClientSide.OnValidationSuccess>
+											</com:TRequiredFieldValidator>
+										</span>
+									</label>
+
+									<div class="clearfix">
+										<com:TActiveCustomButton ID="btnLogin" CssClass="btn btn-primary btn-block" ValidationGroup="userlogin" Onclick="doLogin">                            
+											<prop:Text>		
+												<i class="ace-icon fa fa-key"></i>		
+												<span class="bigger-110">Login</span>
+											</prop:Text>
+											<prop:ClientSide.OnPreDispatch>
+												$('#<%=$this->btnLogin->ClientId%>').prop('disabled',true);						
+											</prop:ClientSide.OnPreDispatch>
+											<prop:ClientSide.OnLoading>
+												$('#<%=$this->btnLogin->ClientId%>').prop('disabled',true);									                                    
+											</prop:ClientSide.OnLoading>
+											<prop:ClientSide.onComplete>                                    
+												$('#<%=$this->btnLogin->ClientId%>').prop('disabled',false);	
+											</prop:ClientSide.OnComplete>
+										</com:TActiveCustomButton>
+
+									</div>
+									<div class="space-4"></div>
+								</fieldset>
+								</com:TPanel>    
+							</form>
+							<com:TPanel Visible="<%=$this->User->isGuest==false%>">
+								You have logged in, click <a href="<%=$this->Page->constructUrl('Home',true)%>">here</a> back to the dashboard.
+							</com:TPanel>  
+							</com:TContent>      
+						</div><!-- /.widget-main -->
+					</div><!-- /.widget-body -->
+				</div><!-- /.login-box -->
+
 			</div>
-			<div class="row" style="margin-top:10px">
-				<div class="col-md-12">
-					<com:TTextBox ID="txtPassword" TextMode="Password" CssClass="form-control" Attributes.Placeholder="Password"/>
-					
-					<com:TRequiredFieldValidator ID="IsPasswordFilledValidator" ControlToValidate="txtPassword" Display="Dynamic" Text="Isi Password !!!" ValidationGroup="userlogin" FocusOnError="true">
-						<prop:ClientSide.OnValidationError>
-							
-						</prop:ClientSide.OnValidationError>
-						<prop:ClientSide.OnValidationSuccess>
-							
-						</prop:ClientSide.OnValidationSuccess>
-					</com:TRequiredFieldValidator>
-				</div>
-			</div>
-			<div class="row" style="margin-top:10px">
-				<div class="col-md-12">
-					<com:TActiveCustomButton ID="btnLogin" CssClass="btn btn-primary btn-block" ValidationGroup="userlogin" Onclick="doLogin">                            
-						<prop:Text>				
-							Login
-						</prop:Text>
-						<prop:ClientSide.OnPreDispatch>
-							$('#<%=$this->btnLogin->ClientId%>').prop('disabled',true);						
-						</prop:ClientSide.OnPreDispatch>
-						<prop:ClientSide.OnLoading>
-							$('#<%=$this->btnLogin->ClientId%>').prop('disabled',true);									                                    
-						</prop:ClientSide.OnLoading>
-						<prop:ClientSide.onComplete>                                    
-							$('#<%=$this->btnLogin->ClientId%>').prop('disabled',false);																								                                                                                                                
-						</prop:ClientSide.OnComplete>
-					</com:TActiveCustomButton>
-				</div>
-			</div>
-			<div class="text-center">    
-				<com:TActiveCustomValidator ControlToValidate="txtUsername" Display="Dynamic" OnServerValidate="checkUsernameAndPassword" ValidationGroup="userlogin" />
-			</div>
-		</com:TPanel>            
-		<com:TPanel Visible="<%=$this->User->isGuest==false%>">
-			You have logged in, click <a href="<%=$this->Page->constructUrl('Home',true)%>">here</a> back to the dashboard.
-		</com:TPanel>        
-		<com:TJavascriptLogger ID="loggerJS" />
-		</com:TContent>
-	</div>
-</div>
+		</div>
