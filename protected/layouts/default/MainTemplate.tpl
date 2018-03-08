@@ -25,10 +25,10 @@
         </button>
 
         <div class="navbar-header pull-left">
-          <a href="index.html" class="navbar-brand">
+          <a href="<%= $this->Page->constructUrl('Home',true) %>" class="navbar-brand">
             <small>
               <i class="fa fa-leaf"></i>
-              Ace Admin
+              PTSP OPD
             </small>
           </a>
         </div>
@@ -41,7 +41,7 @@
                 <img class="nav-user-photo" src="<%= $this->Page->Theme->baseUrl %>/images/avatars/user.jpg" alt="Jason's Photo" />
                 <span class="user-info">
                   <small>Welcome,</small>
-                  Jason
+                  <%= $this->Page->Pengguna->getUsername();%>
                 </span>
 
                 <i class="ace-icon fa fa-caret-down"></i>
@@ -49,14 +49,7 @@
 
               <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                 <li>
-                  <a href="#">
-                    <i class="ace-icon fa fa-cog"></i>
-                    Settings
-                  </a>
-                </li>
-
-                <li>
-                  <a href="profile.html">
+                  <a href="<%= $this->Page->constructUrl('Profile',true) %>">
                     <i class="ace-icon fa fa-user"></i>
                     Profile
                   </a>
@@ -98,37 +91,6 @@
         <script type="text/javascript">
           try{ace.settings.loadState('sidebar')}catch(e){}
         </script>
-
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-          <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-            <button class="btn btn-success">
-              <i class="ace-icon fa fa-signal"></i>
-            </button>
-
-            <button class="btn btn-info">
-              <i class="ace-icon fa fa-pencil"></i>
-            </button>
-
-            <button class="btn btn-warning">
-              <i class="ace-icon fa fa-users"></i>
-            </button>
-
-            <button class="btn btn-danger">
-              <i class="ace-icon fa fa-cogs"></i>
-            </button>
-          </div>
-
-          <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-            <span class="btn btn-success"></span>
-
-            <span class="btn btn-info"></span>
-
-            <span class="btn btn-warning"></span>
-
-            <span class="btn btn-danger"></span>
-          </div>
-        </div><!-- /.sidebar-shortcuts -->
-
         <ul class="nav nav-list">
           <li class="active">
             <a href="<%= $this->Page->constructUrl('Home',true) %>">
@@ -141,82 +103,69 @@
 
           <li class="">
             <a href="#" class="dropdown-toggle">
-              <i class="menu-icon fa fa-desktop"></i>
+              <i class="menu-icon fa fa-building"></i>
               <span class="menu-text">
-                Menu 1
+                OPD
               </span>
 
               <b class="arrow fa fa-angle-down"></b>
             </a>
-
             <b class="arrow"></b>
-
             <ul class="submenu">
               <li class="">
-                <a href="#" class="dropdown-toggle">
+                <a href="two-menu-1.html">
                   <i class="menu-icon fa fa-caret-right"></i>
-
-                  Sub Menu 1
-                  <b class="arrow fa fa-angle-down"></b>
+                  Respon
                 </a>
-
                 <b class="arrow"></b>
+              </li>
+              <li class="">
+                <a href="two-menu-1.html">
+                  <i class="menu-icon fa fa-caret-right"></i>
+                  Surat Telaah
+                </a>
+                <b class="arrow"></b>
+              </li>
+              <li class="">
+                <a href="two-menu-1.html">
+                  <i class="menu-icon fa fa-caret-right"></i>
+                  Upload Rekomendasi
+                </a>
+                <b class="arrow"></b>
+              </li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="#" class="dropdown-toggle">
+              <i class="menu-icon fa fa-legal"></i>
+              <span class="menu-text">
+                Biro Hukum
+              </span>
 
-                <ul class="submenu">
-                  <li class="">
-                    <a href="top-menu.html">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                      Top Menu
-                    </a>
-
-                    <b class="arrow"></b>
-                  </li>
-
-                  <li class="">
-                    <a href="two-menu-1.html">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                      Two Menus 1
-                    </a>
-
-                    <b class="arrow"></b>
-                  </li>
-
-                  <li class="">
-                    <a href="two-menu-2.html">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                      Two Menus 2
-                    </a>
-
-                    <b class="arrow"></b>
-                  </li>
-
-                  <li class="">
-                    <a href="mobile-menu-1.html">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                      Default Mobile Menu
-                    </a>
-
-                    <b class="arrow"></b>
-                  </li>
-
-                  <li class="">
-                    <a href="mobile-menu-2.html">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                      Mobile Menu 2
-                    </a>
-
-                    <b class="arrow"></b>
-                  </li>
-
-                  <li class="">
-                    <a href="mobile-menu-3.html">
-                      <i class="menu-icon fa fa-caret-right"></i>
-                      Mobile Menu 3
-                    </a>
-
-                    <b class="arrow"></b>
-                  </li>
-                </ul>
+              <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+              <li class="">
+                <a href="two-menu-1.html">
+                  <i class="menu-icon fa fa-caret-right"></i>
+                  Respon
+                </a>
+                <b class="arrow"></b>
+              </li>
+              <li class="">
+                <a href="two-menu-1.html">
+                  <i class="menu-icon fa fa-caret-right"></i>
+                  Draft SK
+                </a>
+                <b class="arrow"></b>
+              </li>
+              <li class="">
+                <a href="two-menu-1.html">
+                  <i class="menu-icon fa fa-caret-right"></i>
+                  Upload Persetujuan SK
+                </a>
+                <b class="arrow"></b>
               </li>
             </ul>
           </li>

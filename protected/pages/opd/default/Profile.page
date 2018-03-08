@@ -1,0 +1,106 @@
+<%@ Title="PTSP-OPD - Profil OPD" %>
+
+<com:TContent ID="modulheader">
+              <h1>
+                Profil
+                <small>
+                  <i class="ace-icon fa fa-angle-double-right"></i>
+                  overview &amp; stats
+                </small>
+              </h1>
+</com:TContent>
+<com:TContent ID="maincontent">
+<com:TPanel Visible="<%=$this->getDefaultProcess ()%>">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="widget-box">
+				<div class="widget-header widget-header-flat">
+					<h4 class="widget-title smaller">Data Profil OPD</h4>
+				</div>
+				<div class="widget-body">
+					<div class="widget-main">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Username :</label>
+										<div class="col-sm-5">
+											<com:TTextBox ID="txtUsername" CssClass="form-control" Enabled="false"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> OPD :</label>
+										<div class="col-sm-5">
+											<com:TTextBox ID="txtOPD" CssClass="form-control" Enabled="false"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> Old Password :</label>
+										<div class="col-sm-5">
+											<com:TTextBox ID="txtOldPassword" CssClass="form-control" TextMode="Password"/>
+											<com:TRequiredFieldValidator ID="IsOldPasswordFilledValidator" ControlToValidate="txtOldPassword" Display="Dynamic" Text="Isi Password Lama !!!" ValidationGroup="profilPengguna" FocusOnError="true">
+												<prop:ClientSide.OnValidationError>
+													
+												</prop:ClientSide.OnValidationError>
+												<prop:ClientSide.OnValidationSuccess>
+													
+												</prop:ClientSide.OnValidationSuccess>
+											</com:TRequiredFieldValidator>
+											<com:TActiveCustomValidator ControlToValidate="txtOldPassword" Display="Dynamic" OnServerValidate="checkOldPassword" ValidationGroup="profilPengguna" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="form-field-1">New Password :</label>
+										<div class="col-sm-5">
+											<com:TTextBox ID="txtNewPassword" CssClass="form-control" TextMode="Password"/>
+											<com:TRequiredFieldValidator ID="IsNewPasswordFilledValidator" ControlToValidate="txtNewPassword" Display="Dynamic" Text="Isi Password Baru !!!" ValidationGroup="profilPengguna" FocusOnError="true">
+												<prop:ClientSide.OnValidationError>
+													
+												</prop:ClientSide.OnValidationError>
+												<prop:ClientSide.OnValidationSuccess>
+													
+												</prop:ClientSide.OnValidationSuccess>
+											</com:TRequiredFieldValidator>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="form-field-1">Re-Type New Password :</label>
+										<div class="col-sm-5">
+											<com:TTextBox ID="txtNewPassword2"  CssClass="form-control" TextMode="Password"/>
+											<com:TCompareValidator
+										    ControlToValidate="txtNewPassword"
+										    ControlToCompare="txtNewPassword2"
+										    ErrorMessage="Your password entries did not match."
+										    Display="Dynamic"
+										    ValidationGroup="profilPengguna" />
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-2 col-md-offset-2">
+											<com:TActiveCustomButton ID="btnSave" CssClass="btn btn-primary btn-sm btn-block" ValidationGroup="profilPengguna" Onclick="saveData">                            
+												<prop:Text>		
+													<i class="ace-icon fa fa-save"></i>		
+													<span class="bigger-110">Save</span>
+												</prop:Text>
+												<prop:ClientSide.OnPreDispatch>
+													$('#<%=$this->btnSave->ClientId%>').prop('disabled',true);						
+												</prop:ClientSide.OnPreDispatch>
+												<prop:ClientSide.OnLoading>
+													$('#<%=$this->btnSave->ClientId%>').prop('disabled',true);									                                    
+												</prop:ClientSide.OnLoading>
+												<prop:ClientSide.onComplete>                                    
+													$('#<%=$this->btnSave->ClientId%>').prop('disabled',false);	
+												</prop:ClientSide.OnComplete>
+											</com:TActiveCustomButton>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</com:TPanel>
+</com:TContent>
