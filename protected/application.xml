@@ -20,13 +20,13 @@
 		</service>                    
 	</services>        
     <parameters>
-        <parameter id="db_host" value=""/>
+        <parameter id="db_host" value="localhost"/>
         <parameter id="db_username" value="root"/>
         <parameter id="db_userpassword" value=""/>
-        <parameter id="db_name" value=""/>
+        <parameter id="db_name" value="ptsp-opd"/>
         <parameter id="db_type" value="mysql"/>		
         <parameter id="address_lokal" value="http://localhost/ptsp-opd"/>
         <parameter id="address_lan" value=""/>        
-        <parameter id="address_internet" value=""/>        
+        <parameter id="address_internet" value="http://sip-ptsp.kepriprov.go.id/"/>        
     </parameters>      
 </application>
